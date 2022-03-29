@@ -1,0 +1,127 @@
+<Digt>:
+    MDScreen:
+        id: Hellow
+        name: "Hellow"
+        MDBoxLayout:
+            orientation: 'vertical'
+            MDToolbar:
+                id: toolbar_Hellow
+                md_bg_color: .10,.10,.10,1
+                pos_hint: {"top": 1}
+                elevation: 10
+                title: "Часы"
+                specific_text_color: .55, .32, .61, .96
+            MDBottomNavigation:
+                text_color_active: .55, .32, .61, .96
+                text_color_normal: .945,.937,.94,.7
+                panel_color:[.10,.10,.10,1]
+                halign: "start"
+                MDBottomNavigationItem:
+                    id: Screen_Hellow
+                    name: "Screen_Hellow"
+                    text: "Настройка"
+                    icon: 'information'
+                    MDBoxLayout:
+                        orientation: 'vertical'
+                        md_bg_color: .0,.0,.0,.4
+                        padding: "70dp"
+                        spacing: "10dp"
+                        height: self.minimum_height
+                        MDLabel:
+                            text: "Оперативное время"
+                            halign: "center"
+                            theme_text_color: "Custom"
+                            text_color: "6851a5"
+                            height:"50dp"
+                            font_style: "H4"
+                            canvas.before:
+                                Color:
+                                    rgba: (0, 0, 0, 0.1)  
+                                Rectangle:
+                                    pos: self.pos
+                                    size: self.size
+                        MDTextField:
+                            id: getTime
+                            theme_text_color: "Custom"
+                            hint_text: "Введите время(YYYY MM DD HH MM SS)"
+                            helper_text: "YYYY MM DD HH MM SS"
+                            max_text_length: 19
+                            helper_text_mode: "on_focus"
+                            font_size:'30sp'
+                            pos_hint: {'center_x': .5, 'center_y': .5}
+                            hint_text_color_focus: 0, 0, 1, 1
+                            line_color_normal: 1, 1, 1, .5
+                            line_color_focus: 1, 1, 1, 1
+                            helper_text_color_normal: 0, 1, 0,1 
+                            size_hint_x: .5
+                            size_hint_y: .4
+                            mode: "rectangle"
+                            text: "2021 12 1 1 1 1"
+                        MDFillRoundFlatIconButton:
+                            id: Enter_Button
+                            text: "Ввести"
+                            icon: 'pencil'
+                            pos_hint: {'center_x': .5, 'center_y': .5}
+                            line_color: "6851a5"
+                            icon_color: "6851a5"
+                            text_color: "6851a5"
+                            md_bg_color: .10,.10,.10,1                           
+                            on_release:
+                                app.getTime()
+                                app.addOperTime(operationTime)
+                MDBottomNavigationItem:
+                    id: Encoding
+                    name: "Screen _Encoding"
+                    text: "Часы"
+                    icon: 'alpha-e-circle-outline'
+                    MDBoxLayout:
+                        orientation: 'vertical'
+                        padding: "70dp"
+                        spacing: "10dp"
+                        md_bg_color: .0,.0,.0,1
+                        canvas.before:
+                            Color:  
+                                rgba: (1, 1, 1, 0.1)  
+                            Rectangle:
+                                pos: 0,250
+                                size: 1400,40
+                        MDBoxLayout:
+                            
+                            canvas.before:
+                                Color:  
+                                    rgba: (1, 1, 1, 0.1)  
+                                Rectangle:
+                                    pos: 0,250
+                                    size: 1400,20
+                            MDLabel:
+                                pos_hint: {'center_x': .55, 'center_y': .5}
+                                theme_text_color: "Custom"
+                                text_color: 1, 1, 1, 1
+                                text: "Оперативное время"
+                                font_style: "H2"
+                                halign: "center"
+                            MDLabel:
+                                id: operationTime
+                                pos_hint: {'center_x': .55, 'center_y': .5}
+                                theme_text_color: "Custom"
+                                text_color: 1, 1, 1, 1
+                                text: "Тут время"
+                                halign: "center"
+                                font_style: "H2"
+                        MDBoxLayout:
+                            
+                            MDLabel:
+                                pos_hint: {'center_x': .60, 'center_y': .5}
+                                theme_text_color: "Custom"
+                                text_color: 1, 1, 1, 1
+                                text: "Астрономическое время"
+                                font_style: "H2"
+                                halign: "center"
+                            MDLabel:
+                                id: localTime
+                                pos_hint: {'center_x': .60, 'center_y': .5}
+                                theme_text_color: "Custom"
+                                text_color: 1, 1, 1, 1
+                                text: "12"
+                                halign: "center"
+                                font_style: "H2"
